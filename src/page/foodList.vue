@@ -349,16 +349,17 @@
                 }
             },
             beforeAvatarUpload(file) {
-                const isRightType = (file.type === 'image/jpeg') || (file.type === 'image/png');
-                const isLt2M = file.size / 1024 / 1024 < 2;
-
-                if (!isRightType) {
-                    this.$message.error('上传头像图片只能是 JPG 格式!');
-                }
-                if (!isLt2M) {
-                    this.$message.error('上传头像图片大小不能超过 2MB!');
-                }
-                return isRightType && isLt2M;
+                return new Promise((resolve, reject) => {
+					if (file.size > 1024 * 40){
+						imageConversion.compressAccurately(file, 40).then(res => { // console.log(res)
+							var compressed_file = new File([res], file.name, {type: file.type, lastModified: Date.now()});
+							compressed_file.uid = file.uid;
+							resolve(compressed_file)
+						})
+					}else{
+						resolve(file)
+					}
+				})
             },
             async updateFood(){
                 this.dialogFormVisible = false;
