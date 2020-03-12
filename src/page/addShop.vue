@@ -166,7 +166,6 @@
     import headTop from '@/components/headTop'
     import {cityGuess, addShop, searchplace, foodCategory} from '@/api/getData'
 	import {baseUrl, baseImgPath} from '@/config/env'
-	import {compress} from '@/config/mUtils'
 	import imageConversion from 'image-conversion'
 	
     export default {

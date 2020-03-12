@@ -37,6 +37,8 @@
 	import headTop from '../components/headTop'
     import {mapState} from 'vuex'
     import {baseUrl, baseImgPath} from '@/config/env'
+	import imageConversion from 'image-conversion'
+
 
     export default {
         data(){

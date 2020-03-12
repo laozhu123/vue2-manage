@@ -138,6 +138,7 @@
  	import headTop from '@/components/headTop'
     import {getCategory, addCategory, addFood} from '@/api/getData'
     import {baseUrl, baseImgPath} from '@/config/env'
+	import imageConversion from 'image-conversion'
     export default {
     	data(){
     		return {
